@@ -27,7 +27,7 @@ nav {
   padding: 0.75rem 0;
   z-index: 4;
 }
-ul {
+nav ul {
   font-size: 2rem;
   padding-top: 2%;
   align-content: center;
@@ -37,11 +37,11 @@ ul {
   align-items: center;
   gap: 1em;
 }
-ul li a {
+nav ul li a {
   color: white;
   mix-blend-mode: difference;
 }
-ul li a:hover {
+nav ul li a:hover {
   text-decoration: underline;
 }
 
@@ -172,14 +172,13 @@ h2 {
   background-color: #49df2b;
 }
 #projects {
-  /* prevent blend modes from affecting project images */
   isolation: isolate;
 }
 #projects h2 {
-  margin-left: 3%;
+  margin-left: 5%;
+  padding-top: 2%;
 }
 
-/* Projects grid: responsive, shrinks with window size using auto-fit */
 #projects .project-list {
   width: 90%;
   gap: 0;
@@ -191,7 +190,6 @@ h2 {
 }
 
 #projects .project-list li {
-  /* ensure the link inside can fill the grid cell */
   display: block;
 }
 
@@ -199,27 +197,67 @@ h2 {
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: rgba(0,0,0,0.12);
+  background-color: rgba(0, 0, 0, 0.12);
   background-size: cover;
   background-position: center;
   overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.25s ease;
-  /* ensure the project's background image is not blended with page colors */
   mix-blend-mode: normal;
+  position: relative;
 }
 
-#projects .project-list a:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+#projects .project-list a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.25s ease;
+  pointer-events: none;
 }
 
-/* example placeholders for project visuals (you can replace with images) */
-.project1 { background-image: url(images/AU.png); }
-.project2 { background-image: url(images/bauhaus.png); }
-.project3 { background-image: url(images/ccdm.png); }
-.project4 { background-image: url(images/MG.png); }
-.project5 { background-image: url(images/Raven.png); }
-.project6 { background-image: url(images/Recrutamento.png); }
+#projects .project-list a:hover::before {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.project-caption {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 2rem;
+  line-height: 1.2;
+  max-width: calc(100% - 2rem);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  text-align: left;
+  z-index: 2;
+  font-family: "Stack Sans Text", sans-serif;
+}
+
+#projects .project-list a:hover .project-caption {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.project1 {
+  background-image: url(images/AU.png);
+}
+.project2 {
+  background-image: url(images/bauhaus.png);
+}
+.project3 {
+  background-image: url(images/ccdm.png);
+}
+.project4 {
+  background-image: url(images/MG.png);
+}
+.project5 {
+  background-image: url(images/Raven.png);
+}
+.project6 {
+  background-image: url(images/Recrutamento.png);
+}
 
 @media (max-width: 1024px) {
   h1 {
@@ -286,5 +324,26 @@ h2 {
   }
   #projects h2 {
     margin-left: 3%;
+  }
+  #projects .project-list {
+    width: 86%;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+@media (min-width: 2200px) {
+  nav ul {
+    font-size: 3rem;
+  }
+  #name-nav {
+    font-size: 3.2rem;
+  }
+  h2 {
+    font-size: 8rem;
+  }
+  #about .text-wrapper p {
+    font-size: min(2.5rem, 3vw);
+  }
+  #projects .project-list {
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   }
 }
