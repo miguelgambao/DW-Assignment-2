@@ -13,7 +13,12 @@
     <script src="hamburger.js" defer></script>
   </head>
   <body>
-    <a class="hamburger-btn" href="" aria-controls="sidebar" aria-expanded="false">
+    <a
+      class="hamburger-btn"
+      href=""
+      aria-controls="sidebar"
+      aria-expanded="false"
+    >
       <div class="rectangle-top"></div>
       <div class="rectangle-bottom"></div>
     </a>
@@ -21,7 +26,7 @@
     <aside id="sidebar" class="sidebar" aria-hidden="true">
       <div class="sidebar-links">
         <ul>
-          <li><a href="">Projects</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="">Contact</a></li>
         </ul>
@@ -31,7 +36,7 @@
     <header>
       <nav>
         <ul>
-          <li><a class="hide-nav" href="">Projects</a></li>
+          <li><a class="hide-nav" href="#projects">Projects</a></li>
           <li><a id="name-nav" href="#">[Miguel Gambão]</a></li>
           <li><a class="hide-nav" href="#about">About</a></li>
           <li><a class="hide-nav" href="">Contact</a></li>
@@ -43,21 +48,32 @@
     </header>
     <main>
       <div id="about">
-        <div class="image-wrapper">
-
-        </div>
+        <div class="image-wrapper"></div>
         <div class="text-wrapper">
           <h2>About Me</h2>
           <p>
             My name is Miguel Gambão, and I am a designer and student currently
             attending the Design and Multimedia Masters, I am especially
             interested in editorial graphic design, and have special passion for
-          music, instruments, media, books and photography. <br>
-          <br>
-          I mostly work with Adode apps like Illustrator, Photoshop, After Effects, InDesign and Premiere Pro. 
-In terms of code, HTML, CSS, JavaScript and Processing.
-Bonus ones include Blender, Unreal Engine and Figma. 
-        </p>
+            music, instruments, media, books and photography. <br />
+            <br />
+            I mostly work with Adobe apps like Illustrator, Photoshop, After
+            Effects, InDesign and Premiere Pro. In terms of code, HTML, CSS,
+            JavaScript and Processing. Bonus ones include Blender, Unreal Engine
+            and Figma.
+          </p>
+        </div>
+      </div>
+      <div id="projects">
+        <h2>Projects</h2>
+        <ul class="project-list">
+          <li><a class="project1"></a></li>
+          <li><a class="project2"></a></li>
+          <li><a class="project3"></a></li>
+          <li><a class="project4"></a></li>
+          <li><a class="project5"></a></li>
+          <li><a class="project6"></a></li>
+        </ul>
       </div>
     </main>
   </body>

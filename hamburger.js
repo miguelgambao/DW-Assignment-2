@@ -27,4 +27,15 @@
     if (sidebar.contains(target)) return; // interaction inside
     setOpen(false);
   });
+
+  // close when clicking any nav link inside the sidebar
+  // (keeps default navigation behavior but closes the menu)
+  const sidebarLinks = sidebar.querySelectorAll("a[href]");
+  if (sidebarLinks && sidebarLinks.length) {
+    sidebarLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        setOpen(false);
+      });
+    });
+  }
 })();

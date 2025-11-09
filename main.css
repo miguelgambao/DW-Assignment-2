@@ -144,12 +144,14 @@ h1 {
   width: 60%;
   margin: 8rem min(13rem, 7rem) 4rem 4rem;
 }
-#about .text-wrapper h2 {
-  transform: translateX(-15vw);
+h2 {
   font-size: min(6rem, 8vw);
   font-family: "Stack Sans Notch", sans-serif;
   color: white;
   mix-blend-mode: difference;
+}
+#about .text-wrapper h2 {
+  transform: translateX(-15vw);
 }
 #about .text-wrapper p {
   font-size: min(1.5rem, 2vw);
@@ -165,6 +167,59 @@ h1 {
   background-size: cover;
   width: 40%;
 }
+#projects {
+  min-height: 100vh;
+  background-color: #49df2b;
+}
+#projects {
+  /* prevent blend modes from affecting project images */
+  isolation: isolate;
+}
+#projects h2 {
+  margin-left: 3%;
+}
+
+/* Projects grid: responsive, shrinks with window size using auto-fit */
+#projects .project-list {
+  width: 90%;
+  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  list-style: none;
+  align-items: stretch;
+  z-index: 900;
+}
+
+#projects .project-list li {
+  /* ensure the link inside can fill the grid cell */
+  display: block;
+}
+
+#projects .project-list a {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: rgba(0,0,0,0.12);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.25s ease;
+  /* ensure the project's background image is not blended with page colors */
+  mix-blend-mode: normal;
+}
+
+#projects .project-list a:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* example placeholders for project visuals (you can replace with images) */
+.project1 { background-image: url(images/AU.png); }
+.project2 { background-image: url(images/bauhaus.png); }
+.project3 { background-image: url(images/ccdm.png); }
+.project4 { background-image: url(images/MG.png); }
+.project5 { background-image: url(images/Raven.png); }
+.project6 { background-image: url(images/Recrutamento.png); }
 
 @media (max-width: 1024px) {
   h1 {
@@ -219,12 +274,17 @@ h1 {
     margin-top: 1rem;
     margin-left: 3%;
   }
+  h2 {
+    font-size: min(10rem, 14vw);
+  }
   #about .text-wrapper h2 {
     transform: translate(0);
-    font-size: min(10rem, 14vw);
   }
   #about .text-wrapper p {
     transform: translate(0);
     font-size: min(2rem, 4vw);
+  }
+  #projects h2 {
+    margin-left: 3%;
   }
 }
