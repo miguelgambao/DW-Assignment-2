@@ -6,11 +6,11 @@
 body {
   font-size: 16px;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 header {
   position: relative;
-  background-color: #bf1b1b;
+  background-color: blueviolet;
   width: 100vw;
   height: 100vh;
   font-family: "Stack Sans Notch", sans-serif;
@@ -38,6 +38,9 @@ ul {
 ul li a {
   color: white;
   mix-blend-mode: difference;
+}
+ul li a:hover {
+  text-decoration: underline;
 }
 
 .hamburger-btn {
@@ -72,11 +75,13 @@ ul li a {
   transform: translateY(-8px) rotate(-45deg);
 }
 .sidebar {
+    font-family: "Stack Sans Notch", sans-serif;
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 70%; /* user requested 80% */
+  width: 70%;
   height: 100vh;
+  mix-blend-mode: normal;
   background: #ffffff;
   color: #000000;
   transform: translateX(100%);
@@ -109,7 +114,6 @@ ul li a {
   font-size: 2.4rem;
 }
 
-/* prevent background scroll when sidebar open (JS toggles .no-scroll on body) */
 body.no-scroll {
   overflow: hidden;
 }
@@ -122,8 +126,40 @@ h1 {
   color: white;
   mix-blend-mode: difference;
 }
+
 #name-nav {
   font-size: 2.3rem;
+}
+
+.About {
+  height: 100vh;
+  width: 100vw;
+  background-color: #bf1b1b;
+  display: flex;
+}
+h2 {
+  font-size: 7rem;
+  font-family: "Stack Sans Notch", sans-serif;
+  color: white;
+  mix-blend-mode: difference;
+}
+p {
+  font-size: 1.7rem;
+  color: white;
+  font-family: "Stack Sans Text", sans-serif;
+  mix-blend-mode: difference;
+}
+.about .image-wrapper {
+  background-color: blue;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 50%;
+}
+.About img {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
 }
 
 @media (max-width: 1024px) {
