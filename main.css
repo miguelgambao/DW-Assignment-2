@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 body {
   font-size: 16px;
@@ -10,20 +11,21 @@ body {
 }
 header {
   position: relative;
-  background-color: blueviolet;
+  background-color: rgb(0, 0, 0);
   width: 100vw;
   height: 100vh;
   font-family: "Stack Sans Notch", sans-serif;
   color: white;
   mix-blend-mode: difference;
 }
-/* make nav a flex bar and a positioning context for the hamburger */
+
 nav {
   position: relative;
   display: flex;
-  align-items: center; /* vertically center nav children */
-  justify-content: center; /* keep nav items centered */
+  align-items: center;
+  justify-content: center;
   padding: 0.75rem 0;
+  z-index: 4;
 }
 ul {
   font-size: 2rem;
@@ -45,7 +47,7 @@ ul li a:hover {
 
 .hamburger-btn {
   display: none;
-  position: fixed; /* keep button on top of everything */
+  position: fixed;
   right: 1rem;
   top: 1.3rem;
   flex-direction: column;
@@ -54,7 +56,7 @@ ul li a:hover {
   cursor: pointer;
   width: 48px;
   height: 40px;
-  z-index: 1100; /* above the sidebar */
+  z-index: 1100;
   mix-blend-mode: difference;
 }
 .rectangle-top,
@@ -75,7 +77,7 @@ ul li a:hover {
   transform: translateY(-8px) rotate(-45deg);
 }
 .sidebar {
-    font-family: "Stack Sans Notch", sans-serif;
+  font-family: "Stack Sans Notch", sans-serif;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -125,41 +127,43 @@ h1 {
   line-height: 1em;
   color: white;
   mix-blend-mode: difference;
+  z-index: 5;
+  pointer-events: none;
 }
 
 #name-nav {
   font-size: 2.3rem;
 }
-
-.About {
-  height: 100vh;
-  width: 100vw;
-  background-color: #bf1b1b;
+#about {
+  min-height: 100vh;
+  background-color: #db1515;
   display: flex;
 }
-h2 {
-  font-size: 7rem;
+#about .text-wrapper {
+  align-items: center;
+  width: 60%;
+  margin: 8rem min(13rem, 7rem) 4rem 4rem;
+}
+#about .text-wrapper h2 {
+  transform: translateX(-15vw);
+  font-size: min(6rem, 8vw);
   font-family: "Stack Sans Notch", sans-serif;
   color: white;
   mix-blend-mode: difference;
 }
-p {
-  font-size: 1.7rem;
+#about .text-wrapper p {
+  font-size: min(1.5rem, 2vw);
   color: white;
   font-family: "Stack Sans Text", sans-serif;
   mix-blend-mode: difference;
+  transform: translateX(-2rem);
 }
-.about .image-wrapper {
-  background-color: blue;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 50%;
-}
-.About img {
-  width: 100%;
-  object-fit: cover;
-  height: auto;
+
+#about .image-wrapper {
+  background-image: url(images/me.jpg);
+  background-position: cover;
+  background-size: cover;
+  width: 40%;
 }
 
 @media (max-width: 1024px) {
@@ -172,6 +176,17 @@ p {
   }
   #name-nav {
     font-size: 2rem;
+  }
+
+  #about .text-wrapper {
+    width: 50%;
+    margin-top: 3rem;
+  }
+  #about .text-wrapper p {
+    font-size: min(5rem, 2.5vw);
+  }
+  #about .image-wrapper {
+    width: 50%;
   }
 }
 
@@ -189,5 +204,27 @@ p {
   }
   .hamburger-btn {
     display: flex;
+  }
+  #about {
+    flex-direction: column;
+    margin: 0;
+  }
+  #about .image-wrapper {
+    width: 55vw;
+    min-height: 60vh;
+  }
+  #about .text-wrapper {
+    width: 80%;
+    min-height: 45vh;
+    margin-top: 1rem;
+    margin-left: 3%;
+  }
+  #about .text-wrapper h2 {
+    transform: translate(0);
+    font-size: min(10rem, 14vw);
+  }
+  #about .text-wrapper p {
+    transform: translate(0);
+    font-size: min(2rem, 4vw);
   }
 }
