@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    
     text-decoration: none;
 }
 body {
@@ -11,7 +10,7 @@ body {
 }
 header {
     position: relative;
-    background-color: #cb2828;
+    background-color: #000000;
     width: 100vw;
     height: 100vh;
     font-family: "Stack Sans Notch", sans-serif;
@@ -19,14 +18,46 @@ header {
     mix-blend-mode: difference;
 
 }
+/* make nav a flex bar and a positioning context for the hamburger */
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;     /* vertically center nav children */
+    justify-content: center; /* keep nav items centered */
+    padding: 0.75rem 0;
+}
 ul {
     font-size: 2rem;
-    padding-top: 5vh;
+    padding-top: 2%;
     align-content: center;
     list-style-type: none;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1em;
+}
+ul li a {
+    color: white;
+}
+
+.hamburger-icon {
+    display: none; 
+    position: absolute; 
+    right: 5%;       
+    top: 60%;          
+    transform: translateY(-50%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 48px;
+    height: 40px;
+}
+.rectangle-top, .rectangle-bottom {
+    width: 45px;
+    height: 8px;
+    background-color: white;
+    margin: 4px 0;
 }
 h1 {
     position: absolute;
@@ -37,20 +68,36 @@ h1 {
     color: white;
     mix-blend-mode: difference;
 }
+#name-nav {
+    font-size: 2.3rem;
+}
 
 @media (max-width: 1024px) {
-    /* Adjust h1 so it wraps differently on very small screens */
     h1 {
         font-size: 12vw;
         bottom: 2%;
     }
+    ul {
+        font-size: 1.8rem;
+    }
+    #name-nav {
+    font-size: 2rem;
+}
 }
 
-@media (max-width: 600px) {
-    /* Adjust h1 so it wraps differently on very small screens */
+@media (max-width: 700px) {
     h1 {
-        font-size: 17vw;
-        max-width: 70vw;
+        font-size: 15vw;
+        max-width: 76vw;
         bottom: 3%;
+    }
+     #name-nav {
+    font-size: 1.7rem;
+}
+    .hide-nav {
+        display: none;
+    }
+    .hamburger-icon {
+        display: flex;
     }
 }
