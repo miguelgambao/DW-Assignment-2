@@ -1,0 +1,30 @@
+(function () {
+  const hamburger = document.querySelector(".hamburger-btn");
+  const sidebar = document.getElementById("sidebar");
+  if (!hamburger || !sidebar) return;
+
+  function setOpen(isOpen) {
+    hamburger.classList.toggle("open", isOpen);
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    sidebar.classList.toggle("open", isOpen);
+    sidebar.setAttribute("aria-hidden", String(!isOpen));
+    document.body.classList.toggle("no-scroll", isOpen);
+  }
+
+  // initial state
+  setOpen(false);
+
+  hamburger.addEventListener("click", function (e) {
+    e.preventDefault();
+    setOpen(!hamburger.classList.contains("open"));
+  });
+
+  // close when clicking outside sidebar
+  document.addEventListener("click", function (e) {
+    if (!sidebar.classList.contains("open")) return;
+    const target = e.target;
+    if (hamburger.contains(target)) return; // allow toggle
+    if (sidebar.contains(target)) return; // interaction inside
+    setOpen(false);
+  });
+})();

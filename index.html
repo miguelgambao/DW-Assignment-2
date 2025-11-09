@@ -7,6 +7,7 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="main.css">
+            <script src="hamburger.js" defer></script>
         </head>
         <body>
             <header>
@@ -17,11 +18,23 @@
                         <li><a class="hide-nav" href="">About</a></li>
                         <li><a class="hide-nav"  href="">Contact</a></li>
                     </ul>
-                <a class="hamburger-icon" href="">
+                <a class="hamburger-btn" href="" aria-controls="sidebar" aria-expanded="false">
                             <div class="rectangle-top"></div>
                             <div class="rectangle-bottom"></div>
                     </a>
                 </nav>
+
+                <!-- Slide-out sidebar (opens from right) -->
+                <aside id="sidebar" class="sidebar" aria-hidden="true">
+                    <div class="sidebar-links">
+                        <ul>
+                            <li><a href="">Projects</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
                 <h1>Hello<br>I'm Miguel<br>I'm a Designer<br>I like to make stuff</h1>
         </body>
     </html>
