@@ -1,11 +1,36 @@
 (function () {
   function setVh() {
-    var vh = window.innerHeight * 0.01;
+    // Prefer visualViewport when available because it reflects the visible
+    // area on mobile during address-bar show/hide and during scrolling.
+    var height = window.innerHeight;
+    if (window.visualViewport && typeof window.visualViewport.height === 'number') {
+      height = window.visualViewport.height;
+    }
+    var vh = height * 0.01;
     document.documentElement.style.setProperty('--vh', vh + 'px');
   }
+
+  // Debounce updates with requestAnimationFrame to avoid jank when many
+  // resize/scroll events fire rapidly on mobile.
+  var _vhRaf = null;
+  function scheduleVh() {
+    if (_vhRaf) return;
+    _vhRaf = requestAnimationFrame(function () {
+      _vhRaf = null;
+      setVh();
+    });
+  }
+
   setVh();
-  window.addEventListener('resize', setVh);
-  window.addEventListener('orientationchange', setVh);
+  // Listen to visualViewport changes when available (covers scroll-driven
+  // UI changes on mobile). Fallback to window resize/orientationchange.
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', scheduleVh);
+    window.visualViewport.addEventListener('scroll', scheduleVh);
+  } else {
+    window.addEventListener('resize', scheduleVh);
+  }
+  window.addEventListener('orientationchange', scheduleVh);
 
   const hamburger = document.querySelector(".hamburger-btn");
   const sidebar = document.getElementById("sidebar");
