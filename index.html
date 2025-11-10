@@ -12,6 +12,10 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
   </head>
   <body>
+    <!-- Loading screen: full white background with rotating square -->
+    <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
+      <div class="loader-square" aria-hidden="true"></div>
+    </div>
     <a
       class="hamburger-btn"
       href=""
@@ -96,7 +100,21 @@
           </li>
         </ul>
       </div>
+      <div id="contact">
+        <h2>
+          All caught up? <br />
+          Don't be shy, <br />
+          Get in touch with me
+        </h2>
+        <h2>
+          Email me at
+          <a href="mailto:miguel.gambao@hotmail.com"
+            >miguel.gambao@hotmail.com</a
+          >
+        </h2>
+      </div>
     </main>
   </body>
+  <script src="loadingscreen.js"></script>
   <script src="hamburger.js"></script>
 </html>
