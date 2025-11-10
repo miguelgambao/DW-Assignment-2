@@ -1,4 +1,14 @@
 (function () {
+  // Set a CSS variable --vh based on the actual innerHeight to avoid mobile
+  // address-bar resizing causing 100vh layout jumps. Uses px value for 1vh.
+  function setVh() {
+    var vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', vh + 'px');
+  }
+  setVh();
+  window.addEventListener('resize', setVh);
+  window.addEventListener('orientationchange', setVh);
+
   const hamburger = document.querySelector(".hamburger-btn");
   const sidebar = document.getElementById("sidebar");
   if (!hamburger || !sidebar) return;

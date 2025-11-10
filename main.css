@@ -3,17 +3,23 @@
   padding: 0;
   text-decoration: none;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 body {
   font-size: 16px;
-  min-height: 100vh;
+  overflow-x: hidden;
+  /* avoid forcing 100vw (can cause overflow). prefer natural width */
+}
+/* ensure html also hides horizontal overflow on small devices */
+html {
   overflow-x: hidden;
 }
 header {
   position: relative;
   background-color: rgb(0, 0, 0);
-  width: 100vw;
-  height: 100vh;
+  /* prefer width:100% and a CSS variable-driven viewport height to avoid mobile address-bar jumps */
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   font-family: "Stack Sans Notch", sans-serif;
   color: white;
   mix-blend-mode: difference;
@@ -135,7 +141,7 @@ h1 {
   font-size: 2.3rem;
 }
 #about {
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   background-color: #db1515;
   display: flex;
 }
@@ -163,12 +169,13 @@ h2 {
 
 #about .image-wrapper {
   background-image: url(images/me.jpg);
-  background-position: cover;
+  /* fix property order: position should be center; size should be cover */
+  background-position: center;
   background-size: cover;
   width: 40%;
 }
 #projects {
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   background-color: #49df2b;
 }
 #projects {
