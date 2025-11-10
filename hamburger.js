@@ -30,9 +30,7 @@
 
   function setOpen(isOpen) {
     hamburger.classList.toggle("open", isOpen);
-    hamburger.setAttribute("aria-expanded", String(isOpen));
     sidebar.classList.toggle("open", isOpen);
-    sidebar.setAttribute("aria-hidden", String(!isOpen));
   document.body.classList.toggle('menu-open', isOpen);
     if (isOpen) {
       const ov = createOverlay();
