@@ -13,14 +13,23 @@ html {
   overflow-x: hidden;
 }
 header {
-  position: relative;
+  /* make header fixed so it doesn't move while the page scrolls */
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: rgb(0, 0, 0);
- 
+
   width: 100%;
   height: var(--header-h, calc(var(--vh, 1vh) * 100));
+  z-index: 2;
   font-family: "Stack Sans Notch", sans-serif;
   color: white;
   mix-blend-mode: difference;
+}
+
+/* push main content below the fixed header */
+main {
+  margin-top: var(--header-h, calc(var(--vh, 1vh) * 100));
 }
 
 nav {
@@ -286,6 +295,11 @@ h2 {
 }
 .project6 {
   background-image: url(images/Recrutamento.png);
+}
+
+#contact {
+    min-height: 100vh;
+    background-color: #460ee0;
 }
 
 @media (max-width: 1024px) {
