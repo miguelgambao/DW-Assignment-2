@@ -128,7 +128,7 @@ body.menu-open header,
 body.menu-open main {
   filter: blur(6px);
   -webkit-filter: blur(6px);
-  transition: filter 0.5s ease;
+  transition: filter 0.25s ease;
   pointer-events: none;
   user-select: none;
 }
