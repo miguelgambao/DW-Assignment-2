@@ -1,5 +1,7 @@
 (function () {
   function setVh() {
+    // Prefer visualViewport when available because it reflects the visible
+    // area on mobile during address-bar show/hide and during scrolling.
     var height = window.innerHeight;
     if (window.visualViewport && typeof window.visualViewport.height === 'number') {
       height = window.visualViewport.height;
@@ -8,7 +10,8 @@
     document.documentElement.style.setProperty('--vh', vh + 'px');
   }
 
-
+  // Debounce updates with requestAnimationFrame to avoid jank when many
+  // resize/scroll events fire rapidly on mobile.
   var _vhRaf = null;
   function scheduleVh() {
     if (_vhRaf) return;
@@ -19,16 +22,8 @@
   }
 
   setVh();
-  function setHeaderHeight() {
-    var height = window.innerHeight;
-    if (window.visualViewport && typeof window.visualViewport.height === 'number') {
-      height = window.visualViewport.height;
-    }
-    document.documentElement.style.setProperty('--header-h', height + 'px');
-  }
-  setHeaderHeight();
-  window.addEventListener('resize', setHeaderHeight);
-  window.addEventListener('orientationchange', setHeaderHeight);
+  // Listen to visualViewport changes when available (covers scroll-driven
+  // UI changes on mobile). Fallback to window resize/orientationchange.
   if (window.visualViewport) {
     window.visualViewport.addEventListener('resize', scheduleVh);
     window.visualViewport.addEventListener('scroll', scheduleVh);
