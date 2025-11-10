@@ -3,7 +3,7 @@
     <title>Miguel Gambão</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="images/icon.png">
+    <link rel="icon" href="images/icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,8 +13,12 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
   </head>
   <body>
-    <!-- Loading screen: full white background with rotating square -->
-    <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
+    <div
+      id="loading-screen"
+      class="loading-screen"
+      role="status"
+      aria-live="polite"
+    >
       <div class="loader-square" aria-hidden="true"></div>
     </div>
     <a
@@ -32,7 +36,7 @@
         <ul>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </aside>
@@ -43,7 +47,7 @@
           <li><a class="hide-nav" href="#projects">Projects</a></li>
           <li><a id="name-nav" href="#">[Miguel Gambão]</a></li>
           <li><a class="hide-nav" href="#about">About</a></li>
-          <li><a class="hide-nav" href="">Contact</a></li>
+          <li><a class="hide-nav" href="#contact">Contact</a></li>
         </ul>
       </nav>
       <h1>
@@ -108,12 +112,15 @@
           Get in touch with me
         </h2>
         <h2>
-          Email me at
+          Email me at <br />
           <a href="mailto:miguel.gambao@hotmail.com"
             >miguel.gambao@hotmail.com</a
           >
         </h2>
       </div>
+      <footer>
+        <p>Back to the top</p>
+      </footer>
     </main>
   </body>
   <script src="loadingscreen.js"></script>
