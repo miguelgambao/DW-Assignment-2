@@ -1,6 +1,4 @@
 (function () {
-  // Set a CSS variable --vh based on the actual innerHeight to avoid mobile
-  // address-bar resizing causing 100vh layout jumps. Uses px value for 1vh.
   function setVh() {
     var vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', vh + 'px');
@@ -13,15 +11,38 @@
   const sidebar = document.getElementById("sidebar");
   if (!hamburger || !sidebar) return;
 
+  let _scrollY = 0;
+
+  function lockScroll() {
+    _scrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${_scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  }
+
+  function unlockScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, _scrollY);
+  }
+
   function setOpen(isOpen) {
     hamburger.classList.toggle("open", isOpen);
     hamburger.setAttribute("aria-expanded", String(isOpen));
     sidebar.classList.toggle("open", isOpen);
     sidebar.setAttribute("aria-hidden", String(!isOpen));
+    document.body.classList.toggle('menu-open', isOpen);
+    // legacy fallback style
     document.body.classList.toggle("no-scroll", isOpen);
+    if (isOpen) lockScroll();
+    else unlockScroll();
   }
 
-  // initial state
   setOpen(false);
 
   hamburger.addEventListener("click", function (e) {
@@ -29,17 +50,14 @@
     setOpen(!hamburger.classList.contains("open"));
   });
 
-  // close when clicking outside sidebar
   document.addEventListener("click", function (e) {
     if (!sidebar.classList.contains("open")) return;
     const target = e.target;
-    if (hamburger.contains(target)) return; // allow toggle
-    if (sidebar.contains(target)) return; // interaction inside
+    if (hamburger.contains(target)) return;
+    if (sidebar.contains(target)) return;
     setOpen(false);
   });
 
-  // close when clicking any nav link inside the sidebar
-  // (keeps default navigation behavior but closes the menu)
   const sidebarLinks = sidebar.querySelectorAll("a[href]");
   if (sidebarLinks && sidebarLinks.length) {
     sidebarLinks.forEach(function (link) {

@@ -8,16 +8,14 @@
 body {
   font-size: 16px;
   overflow-x: hidden;
-  /* avoid forcing 100vw (can cause overflow). prefer natural width */
 }
-/* ensure html also hides horizontal overflow on small devices */
 html {
   overflow-x: hidden;
 }
 header {
   position: relative;
   background-color: rgb(0, 0, 0);
-  /* prefer width:100% and a CSS variable-driven viewport height to avoid mobile address-bar jumps */
+ 
   width: 100%;
   height: calc(var(--vh, 1vh) * 100);
   font-family: "Stack Sans Notch", sans-serif;
@@ -88,7 +86,8 @@ nav ul li a:hover {
   bottom: 0;
   right: 0;
   width: 70%;
-  height: 100vh;
+  /* use the JS-driven --vh to avoid mobile address-bar jumps */
+  height: calc(var(--vh, 1vh) * 100);
   mix-blend-mode: normal;
   background: #ffffff;
   color: #000000;
@@ -124,6 +123,15 @@ nav ul li a:hover {
 
 body.no-scroll {
   overflow: hidden;
+}
+/* when the menu is open, blur the main content slightly and disable interactions */
+body.menu-open header,
+body.menu-open main {
+  filter: blur(6px);
+  -webkit-filter: blur(6px);
+  transition: filter 0.25s ease;
+  pointer-events: none;
+  user-select: none;
 }
 h1 {
   position: absolute;
