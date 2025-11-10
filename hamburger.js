@@ -10,25 +10,22 @@
   const hamburger = document.querySelector(".hamburger-btn");
   const sidebar = document.getElementById("sidebar");
   if (!hamburger || !sidebar) return;
+  let overlay = null;
 
-  let _scrollY = 0;
-
-  function lockScroll() {
-    _scrollY = window.scrollY || window.pageYOffset || 0;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${_scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
+  function createOverlay() {
+    if (overlay) return overlay;
+    overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    overlay.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false });
+    overlay.addEventListener('wheel', function (e) { e.preventDefault(); }, { passive: false });
+    overlay.addEventListener('click', function () { setOpen(false); });
+    return overlay;
   }
 
-  function unlockScroll() {
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
-    window.scrollTo(0, _scrollY);
+  function removeOverlay() {
+    if (!overlay) return;
+    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    overlay = null;
   }
 
   function setOpen(isOpen) {
@@ -36,11 +33,22 @@
     hamburger.setAttribute("aria-expanded", String(isOpen));
     sidebar.classList.toggle("open", isOpen);
     sidebar.setAttribute("aria-hidden", String(!isOpen));
-    document.body.classList.toggle('menu-open', isOpen);
-    // legacy fallback style
-    document.body.classList.toggle("no-scroll", isOpen);
-    if (isOpen) lockScroll();
-    else unlockScroll();
+  document.body.classList.toggle('menu-open', isOpen);
+    if (isOpen) {
+      const ov = createOverlay();
+      document.body.appendChild(ov);
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overscrollBehavior = 'none';
+      document.body.style.overscrollBehavior = 'none';
+    } else {
+      removeOverlay();
+      // restore scrolling
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.documentElement.style.overscrollBehavior = '';
+      document.body.style.overscrollBehavior = '';
+    }
   }
 
   setOpen(false);

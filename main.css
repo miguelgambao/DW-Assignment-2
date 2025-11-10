@@ -124,7 +124,6 @@ nav ul li a:hover {
 body.no-scroll {
   overflow: hidden;
 }
-/* when the menu is open, blur the main content slightly and disable interactions */
 body.menu-open header,
 body.menu-open main {
   filter: blur(6px);
@@ -132,6 +131,23 @@ body.menu-open main {
   transition: filter 0.25s ease;
   pointer-events: none;
   user-select: none;
+}
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: auto;
+}
+.menu-overlay {
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
+body.menu-open {
+  overscroll-behavior: none;
 }
 h1 {
   position: absolute;
@@ -177,7 +193,6 @@ h2 {
 
 #about .image-wrapper {
   background-image: url(images/me.jpg);
-  /* fix property order: position should be center; size should be cover */
   background-position: center;
   background-size: cover;
   width: 40%;
