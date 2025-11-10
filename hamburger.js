@@ -1,11 +1,5 @@
 (function () {
-  function setVh() {
-    var vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', vh + 'px');
-  }
-  setVh();
-  window.addEventListener('resize', setVh);
-  window.addEventListener('orientationchange', setVh);
+  
 
   const hamburger = document.querySelector(".hamburger-btn");
   const sidebar = document.getElementById("sidebar");
