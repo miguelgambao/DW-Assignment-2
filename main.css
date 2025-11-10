@@ -218,6 +218,7 @@ h2 {
 
 #projects .project-list li {
   display: block;
+  cursor: pointer;
 }
 
 #projects .project-list a {
@@ -228,7 +229,6 @@ h2 {
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  transition: transform 0.35s ease, box-shadow 0.25s ease;
   mix-blend-mode: normal;
   position: relative;
 }
@@ -304,10 +304,10 @@ footer {
   font-size: 2rem;
 }
 footer a {
-    color: rgb(134, 134, 134);
+  color: rgb(134, 134, 134);
 }
 footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 @media (max-width: 1024px) {
   h1 {
@@ -342,7 +342,6 @@ footer a:hover {
   }
 }
 
-
 @media (max-width: 700px) {
   h1 {
     font-size: 15vw;
@@ -375,7 +374,7 @@ footer a:hover {
   h2 {
     font-size: min(10rem, 14vw);
   }
- 
+
   #about .text-wrapper p {
     font-size: min(2rem, 4vw);
   }
