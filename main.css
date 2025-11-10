@@ -455,6 +455,24 @@ footer a:hover {
   footer {
     min-height: 20vh;
   }
+  .control-arrows {
+    right: 0.9rem;
+    bottom: 2.8rem;
+    gap: 2em;
+  }
+  .arrow-top-left,
+  .arrow-top-right,
+  .arrow-bottom-left,
+  .arrow-bottom-right {
+    width: 35px;
+    height: 12px;
+  }
+  .arrow-top-left {
+    transform: translateX(17px) rotate(-45deg);
+  }
+  .arrow-bottom-left {
+    transform: translateX(17px) rotate(45deg);
+  }
 }
 @media (min-width: 2200px) {
   nav ul {
