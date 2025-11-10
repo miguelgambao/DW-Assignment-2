@@ -179,15 +179,12 @@ h2 {
   color: white;
   mix-blend-mode: difference;
 }
-#about .text-wrapper h2 {
-  transform: translateX(-15vw);
-}
+
 #about .text-wrapper p {
   font-size: min(1.5rem, 2vw);
   color: white;
   font-family: "Stack Sans Text", sans-serif;
   mix-blend-mode: difference;
-  transform: translateX(-2rem);
 }
 
 #about .image-wrapper {
@@ -302,10 +299,15 @@ footer {
   font-family: "Stack Sans Notch", sans-serif;
   background-color: rgb(62, 62, 62);
   min-height: 20vh;
-  color: rgb(134, 134, 134);
   text-align: center;
   padding: 1rem 0;
   font-size: 2rem;
+}
+footer a {
+    color: rgb(134, 134, 134);
+}
+footer a:hover {
+    text-decoration: underline;
 }
 @media (max-width: 1024px) {
   h1 {
@@ -373,11 +375,8 @@ footer {
   h2 {
     font-size: min(10rem, 14vw);
   }
-  #about .text-wrapper h2 {
-    transform: translate(0);
-  }
+ 
   #about .text-wrapper p {
-    transform: translate(0);
     font-size: min(2rem, 4vw);
   }
   #projects h2,
