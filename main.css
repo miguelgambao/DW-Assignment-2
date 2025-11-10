@@ -17,7 +17,7 @@ header {
   background-color: rgb(0, 0, 0);
  
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100);
+  height: var(--header-h, calc(var(--vh, 1vh) * 100));
   font-family: "Stack Sans Notch", sans-serif;
   color: white;
   mix-blend-mode: difference;
@@ -86,7 +86,6 @@ nav ul li a:hover {
   bottom: 0;
   right: 0;
   width: 70%;
-  /* use the JS-driven --vh to avoid mobile address-bar jumps */
   height: calc(var(--vh, 1vh) * 100);
   mix-blend-mode: normal;
   background: #ffffff;
