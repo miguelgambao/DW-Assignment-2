@@ -86,7 +86,6 @@ nav ul li a:hover {
   bottom: 0;
   right: 0;
   width: 70%;
-  /* use the JS-driven --vh to avoid mobile address-bar jumps */
   height: calc(var(--vh, 1vh) * 100);
   mix-blend-mode: normal;
   background: #ffffff;
@@ -178,6 +177,7 @@ h1 {
 .arrow-top-right,
 .arrow-bottom-left,
 .arrow-bottom-right {
+  cursor: pointer;
   width: 70px;
   height: 18px;
   background: white;
