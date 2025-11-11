@@ -258,6 +258,9 @@ body.menu-open {
   background-color: #460ee0;
   padding-bottom: 10%;
 }
+#contact h2 {
+  padding-left: 5%;
+}
 #contact h2 a {
   font-size: min(4rem, 6vw);
   color: white;
@@ -314,6 +317,17 @@ footer a:hover {
   }
   #name-nav {
     font-size: 2rem;
+  }
+  #project-text {
+    padding-top: 3rem;
+    gap: 5%;
+  }
+
+  #project-text p:first-child {
+    width: 70%;
+  }
+  #project-text p:last-child {
+    width: 25%;
   }
   #contact {
     min-height: 80vh;
