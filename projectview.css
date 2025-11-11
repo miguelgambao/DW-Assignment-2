@@ -233,11 +233,6 @@ body.menu-open {
   will-change: transform;
 }
 
-.project-images a:hover img,
-.project-images img:hover {
-  transform: scale(0.985);
-  filter: saturate(1.05) contrast(1.02);
-}
 #project-text {
   padding-left: 5%;
   width: 95%;
@@ -376,6 +371,12 @@ footer a:hover {
   .arrow-bottom-left {
     transform: translateX(17px) rotate(45deg);
   }
+  #project-info h2 {
+    font-size: min(5rem, 8vw);
+  }
+  .project-images {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
   #project-text {
     padding-top: 3rem;
     width: 100%;
@@ -391,6 +392,7 @@ footer a:hover {
     font-size: min(2rem, 4vw);
     width: 100%;
   }
+
   #contact h2 {
     margin-left: 3%;
   }

@@ -447,7 +447,7 @@ footer a:hover {
   }
   #projects .project-list {
     width: 86%;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
   #contact h2 a {
     font-size: min(2rem, 6vw);
