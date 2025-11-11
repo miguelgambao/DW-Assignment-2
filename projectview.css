@@ -15,11 +15,10 @@ html {
 }
 header {
   position: relative;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   width: 100%;
   height: 100svh;
   font-family: "Stack Sans Notch", sans-serif;
-  color: white;
   mix-blend-mode: difference;
 }
 h1 {
@@ -39,6 +38,12 @@ h2 {
   color: rgb(255, 255, 255);
   mix-blend-mode: difference;
 }
+header h2 {
+  color: rgb(0, 0, 0);
+  mix-blend-mode: normal;
+  font-size: min(4rem, 6vw);
+
+}
 nav {
   position: relative;
   display: flex;
@@ -56,13 +61,15 @@ nav ul {
   justify-content: center;
   align-items: center;
   gap: 1em;
+  
 }
 nav ul li a {
-  color: white;
+  color: rgb(0, 0, 0);
   mix-blend-mode: difference;
 }
 nav ul li a:hover {
   text-decoration: underline;
+  
 }
 
 .hamburger-btn {
@@ -204,123 +211,7 @@ body.menu-open {
 .arrow-bottom-right {
   transform: rotate(-45deg);
 }
-#about {
-  min-height: calc(var(--vh, 1vh) * 100);
-  background-color: #db1515;
-  display: flex;
-}
-#about .text-wrapper {
-  align-items: center;
-  width: 60%;
-  margin: 8rem min(13rem, 7rem) 4rem 4rem;
-}
 
-
-#about .text-wrapper p {
-  font-size: min(1.5rem, 2vw);
-  color: white;
-  font-family: "Stack Sans Text", sans-serif;
-  mix-blend-mode: difference;
-}
-
-#about .image-wrapper {
-  background-image: url(images/me.jpg);
-  background-position: center;
-  background-size: cover;
-  width: 40%;
-}
-#projects {
-  min-height: calc(var(--vh, 1vh) * 100);
-  background-color: #49df2b;
-}
-#projects {
-  isolation: isolate;
-}
-#projects h2,
-#contact h2 {
-  margin-left: 5%;
-  padding-top: 2%;
-}
-
-#projects .project-list {
-  width: 90%;
-  gap: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  list-style: none;
-  align-items: stretch;
-  z-index: 900;
-}
-
-#projects .project-list li {
-  display: block;
-  cursor: pointer;
-}
-
-#projects .project-list a {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-color: rgba(0, 0, 0, 0.12);
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  mix-blend-mode: normal;
-  position: relative;
-}
-
-#projects .project-list a::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0);
-  transition: background 0.25s ease;
-  pointer-events: none;
-}
-
-#projects .project-list a:hover::before {
-  background: rgba(0, 0, 0, 0.35);
-}
-
-.project-caption {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 2rem;
-  line-height: 1.2;
-  max-width: calc(100% - 2rem);
-  opacity: 0;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  text-align: left;
-  z-index: 2;
-  font-family: "Stack Sans Text", sans-serif;
-}
-
-#projects .project-list a:hover .project-caption {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-}
-
-.project1 {
-  background-image: url(images/AU.png);
-}
-.project2 {
-  background-image: url(images/bauhaus.png);
-}
-.project3 {
-  background-image: url(images/ccdm.png);
-}
-.project4 {
-  background-image: url(images/MG.png);
-}
-.project5 {
-  background-image: url(images/Raven.png);
-}
-.project6 {
-  background-image: url(images/Recrutamento.png);
-}
 #contact {
   min-height: 100vh;
   background-color: #460ee0;
@@ -380,17 +271,6 @@ footer a:hover {
   #name-nav {
     font-size: 2rem;
   }
-
-  #about .text-wrapper {
-    width: 50%;
-    margin-top: 3rem;
-  }
-  #about .text-wrapper p {
-    font-size: min(5rem, 2.5vw);
-  }
-  #about .image-wrapper {
-    width: 50%;
-  }
   #contact {
     min-height: 80vh;
   }
@@ -417,37 +297,8 @@ footer a:hover {
   .hamburger-btn {
     display: flex;
   }
-  #about {
-    flex-direction: column;
-    margin: 0;
-  }
-  #about .image-wrapper {
-    width: 55vw;
-    min-height: 60vh;
-  }
-  #about .text-wrapper {
-    width: 80%;
-    min-height: 45vh;
-    margin-top: 1rem;
-    margin-left: 3%;
-  }
   h2 {
     font-size: min(10rem, 14vw);
-  }
-
-  #about .text-wrapper p {
-    font-size: min(2rem, 4vw);
-  }
-  #projects h2,
-  #contact h2 {
-    margin-left: 3%;
-  }
-  #contact h2:first-child {
-    padding-top: 30%;
-  }
-  #projects .project-list {
-    width: 86%;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
   #contact h2 a {
     font-size: min(2rem, 6vw);
@@ -483,12 +334,6 @@ footer a:hover {
   }
   h2 {
     font-size: 8rem;
-  }
-  #about .text-wrapper p {
-    font-size: min(2.5rem, 3vw);
-  }
-  #projects .project-list {
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   }
 }
 
