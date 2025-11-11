@@ -13,12 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
   header.appendChild(container);
 
   const imageList = [
-    'projectImages/AU/1.png',
-    'projectImages/AU/2.png',
-    'projectImages/AU/3.png',
-    'projectImages/AU/4.png',
-    'projectImages/AU/5.png',
-    'projectImages/AU /6.png',
+    'images/AU.png',
+    'images/bauhaus.png',
+    'images/ccdm.png',
+    'images/MG.png',
+    'images/Raven.png',
+    'images/Recrutamento.png',
+    'images/me.jpg'
   ];
 
   function rand(min, max) {
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sides = ['left', 'right', 'top', 'bottom'];
   const startSide = sides[Math.floor(Math.random() * sides.length)];
 
+  // prefer the opposite side as the end side so the image crosses the header
   const opposite = { left: 'right', right: 'left', top: 'bottom', bottom: 'top' };
   const endSide = opposite[startSide] || sides[Math.floor(Math.random() * sides.length)];
 
@@ -59,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return { x, y };
     }
 
+  // start outside the header, end outside the opposite side so the image
+  // passes through the header and then leaves (visually clipped by header)
   const start = pickPointOnSide(startSide, true);
   const end = pickPointOnSide(endSide, true);
 
