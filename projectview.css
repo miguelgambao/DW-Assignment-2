@@ -254,7 +254,7 @@ body.menu-open {
   font-size: min(1.3rem, 1.8vw);
 }
 #contact {
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: #460ee0;
   padding-bottom: 10%;
 }
