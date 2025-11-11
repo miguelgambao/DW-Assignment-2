@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'projectImages/AU/3.png',
     'projectImages/AU/4.png',
     'projectImages/AU/5.png',
-    'projectImages/AU /6.png',
+    'projectImages/AU/6.png',
+    'projectImages/AU/7.png',
   ];
 
   function rand(min, max) {
