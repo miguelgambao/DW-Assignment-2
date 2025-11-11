@@ -8,18 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   container.style.position = 'absolute';
   container.style.inset = '0';
   container.style.pointerEvents = 'none';
-  container.style.overflow = 'visible';
+  container.style.overflow = 'hidden';
   container.style.zIndex = '1';
   header.appendChild(container);
 
   const imageList = [
-    'images/AU.png',
-    'images/bauhaus.png',
-    'images/ccdm.png',
-    'images/MG.png',
-    'images/Raven.png',
-    'images/Recrutamento.png',
-    'images/me.jpg'
+    'projectImages/AU/1.png',
+    'projectImages/AU/2.png',
+    'projectImages/AU/3.png',
+    'projectImages/AU/4.png',
+    'projectImages/AU/5.png',
+    'projectImages/AU /6.png',
   ];
 
   function rand(min, max) {
@@ -31,10 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const size = Math.round(rand(100, 200)); 
 
 
-    const sides = ['left', 'right', 'top', 'bottom'];
-    const startSide = sides[Math.floor(Math.random() * sides.length)];
-   
-    const endSide = sides[Math.floor(Math.random() * sides.length)];
+  const sides = ['left', 'right', 'top', 'bottom'];
+  const startSide = sides[Math.floor(Math.random() * sides.length)];
+
+  const opposite = { left: 'right', right: 'left', top: 'bottom', bottom: 'top' };
+  const endSide = opposite[startSide] || sides[Math.floor(Math.random() * sides.length)];
 
     function pickPointOnSide(side, outside = true) {
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let spawnTimer = null;
   function scheduleNext() {
-    const nextIn = 2000;
+    const nextIn = 4000;
     spawnTimer = setTimeout(() => {
       spawnFloatingImage();
       scheduleNext();

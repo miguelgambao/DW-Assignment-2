@@ -85,7 +85,7 @@ nav ul {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden; /* clip floating images to header bounds */
   z-index: 1; /* below header content which has higher z-index */
 }
 
@@ -230,6 +230,12 @@ body.menu-open {
 .arrow-top,
 .arrow-bottom {
   display: flex;
+}
+.arrow-top:hover {
+  transform: translateY(-2px);
+}
+.arrow-bottom:hover {
+  transform: translateY(2px);
 }
 .arrow-top-left {
   transform: translateX(33px) rotate(-45deg);
@@ -396,10 +402,10 @@ footer .arrow-right {
   transform-origin: center;
 }
 footer .arrow-left {
-  transform: translateX(10px) rotate(-45deg);
+  transform: translateX(15px) rotate(-45deg);
 }
 footer .arrow-right {
-  transform: translateX(-10px) rotate(45deg);
+  transform: translateX(-15px) rotate(45deg);
 }
 
 footer a {
