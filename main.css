@@ -57,19 +57,17 @@ nav ul {
   align-items: center;
   gap: 1em;
 }
-/* Ensure nav content sits above floating images */
 nav ul {
   position: relative;
   z-index: 2;
 }
 
-/* Floating images that animate behind the nav text */
 .nav-floating {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: visible;
-  z-index: 1; /* below the nav ul's z-index */
+  z-index: 1; 
 }
 
 .nav-float-img {
@@ -80,13 +78,12 @@ nav ul {
   will-change: transform, opacity;
 }
 
-/* Header floating images (straight line, square corners) */
 .header-floating {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: hidden; /* clip floating images to header bounds */
-  z-index: 1; /* below header content which has higher z-index */
+  overflow: hidden; 
+  z-index: 1;
 }
 
 .header-float-img {
@@ -97,9 +94,7 @@ nav ul {
   will-change: transform, opacity, filter;
   transition: filter 220ms linear;
 }
-/* Teal color filter for floating cat images */
 .header-float-img.teal-filter {
-  /* tuned combination: sepia + saturate + hue-rotate => teal/cyan tone */
   filter: sepia(0.22) saturate(1.6) hue-rotate(150deg) brightness(0.95) contrast(0.98);
 }
 nav ul li a {
