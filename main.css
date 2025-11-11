@@ -57,6 +57,45 @@ nav ul {
   align-items: center;
   gap: 1em;
 }
+/* Ensure nav content sits above floating images */
+nav ul {
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating images that animate behind the nav text */
+.nav-floating {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1; /* below the nav ul's z-index */
+}
+
+.nav-float-img {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  will-change: transform, opacity;
+}
+
+/* Header floating images (straight line, square corners) */
+.header-floating {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1; /* below header content which has higher z-index */
+}
+
+.header-float-img {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  will-change: transform, opacity;
+}
 nav ul li a {
   color: white;
   mix-blend-mode: difference;
