@@ -21,26 +21,6 @@
       loader.removeEventListener("transitionend", onTransitionEnd);
     };
     loader.addEventListener("transitionend", onTransitionEnd);
-
-    // If there's no transition (or duration is 0), transitionend will
-    // never fire — fall back to removing the loader after a tiny delay.
-    try {
-      var cs = window.getComputedStyle(loader);
-      var dur = cs ? cs.transitionDuration || cs.getPropertyValue('transition-duration') : null;
-      // transitionDuration may be in seconds (e.g. "0s") or ms (e.g. "200ms")
-      var durationMs = 0;
-      if (dur) {
-        if (dur.indexOf('ms') !== -1) durationMs = parseFloat(dur);
-        else if (dur.indexOf('s') !== -1) durationMs = parseFloat(dur) * 1000;
-      }
-      // if duration is effectively zero, call the handler shortly after
-      if (!durationMs || durationMs <= 20) {
-        setTimeout(onTransitionEnd, 30);
-      }
-    } catch (e) {
-      // If anything goes wrong reading styles, still ensure loader is removed
-      setTimeout(onTransitionEnd, 30);
-    }
   }
 
   window.addEventListener("load", function () {

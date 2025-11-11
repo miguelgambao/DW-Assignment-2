@@ -57,17 +57,19 @@ nav ul {
   align-items: center;
   gap: 1em;
 }
+/* Ensure nav content sits above floating images */
 nav ul {
   position: relative;
   z-index: 2;
 }
 
+/* Floating images that animate behind the nav text */
 .nav-floating {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: visible;
-  z-index: 1;
+  z-index: 1; /* below the nav ul's z-index */
 }
 
 .nav-float-img {
@@ -78,12 +80,13 @@ nav ul {
   will-change: transform, opacity;
 }
 
+/* Header floating images (straight line, square corners) */
 .header-floating {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: hidden; 
-  z-index: 1; 
+  overflow: hidden; /* clip floating images to header bounds */
+  z-index: 1; /* below header content which has higher z-index */
 }
 
 .header-float-img {
@@ -422,12 +425,6 @@ footer a:hover {
   #name-nav {
     font-size: 2rem;
   }
-  .arrow-top:hover {
-  transform: translateY(0);
-}
-.arrow-bottom:hover {
-  transform: translateY(0);
-}
 
   #about .text-wrapper {
     width: 50%;
