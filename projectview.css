@@ -292,10 +292,10 @@ footer .arrow-right {
   transform-origin: center;
 }
 footer .arrow-left {
-  transform: translateX(10px) rotate(-45deg);
+  transform: translateX(15px) rotate(-45deg);
 }
 footer .arrow-right {
-  transform: translateX(-10px) rotate(45deg);
+  transform: translateX(-15px) rotate(45deg);
 }
 
 footer a {
