@@ -61,8 +61,35 @@
   const sidebarLinks = sidebar.querySelectorAll("a[href]");
   if (sidebarLinks && sidebarLinks.length) {
     sidebarLinks.forEach(function (link) {
-      link.addEventListener("click", function () {
+      link.addEventListener("click", function (e) {
+        // Close the menu first so the UI can restore scrolling/overscroll behavior.
         setOpen(false);
+
+        // Some mobile browsers (especially when overflow/overscroll has been
+        // manipulated) do not reliably perform the default navigation to a
+        // hash on another page. Force navigation shortly after closing the
+        // menu to ensure the page and anchor are reached.
+        try {
+          const href = link.getAttribute('href');
+          if (!href) return;
+
+          // Ignore special protocols like mailto: or tel:
+          if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+          // Small delay to allow menu close animations / DOM changes
+          setTimeout(() => {
+            // If it's a same-page hash ("#id"), set location.hash
+            if (href.startsWith('#')) {
+              location.hash = href;
+            } else {
+              // Otherwise navigate to the target URL (works for index.html#about)
+              window.location.href = href;
+            }
+          }, 120);
+        } catch (err) {
+          // Fallback: do nothing and allow default navigation
+          console.warn('Navigation helper failed', err);
+        }
       });
     });
   }
