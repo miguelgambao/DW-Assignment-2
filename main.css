@@ -94,7 +94,13 @@ nav ul {
   pointer-events: none;
   border-radius: 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-  will-change: transform, opacity;
+  will-change: transform, opacity, filter;
+  transition: filter 220ms linear;
+}
+/* Teal color filter for floating cat images */
+.header-float-img.teal-filter {
+  /* tuned combination: sepia + saturate + hue-rotate => teal/cyan tone */
+  filter: sepia(0.22) saturate(1.6) hue-rotate(150deg) brightness(0.95) contrast(0.98);
 }
 nav ul li a {
   color: white;

@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const start = pickPointOnSide(startSide, true);
     const end = pickPointOnSide(endSide, true);
 
-    const img = document.createElement('img');
-    img.className = 'header-float-img';
+  const img = document.createElement('img');
+  img.className = 'header-float-img teal-filter';
     img.alt = 'cat';
     img.style.width = size + 'px';
     img.style.height = size + 'px';
